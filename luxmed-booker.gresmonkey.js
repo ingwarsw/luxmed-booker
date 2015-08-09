@@ -16,7 +16,7 @@ function checkVisits() {
     if (foundDivs.length) {
         console.log("Filtering..");
 
-        var foundDivs = jQuery.map(foundDivs, filterNeeded);
+        foundDivs = jQuery.map(foundDivs, filterNeeded);
     }
 
     console.log("Found " + (foundDivs.length ? foundDivs.length : 0) + " visits.. after filtering..");
@@ -138,7 +138,7 @@ function switchAuto() {
 }
 
 function isHidden(el) {
-    return (el.offsetParent === null)
+    return (el.offsetParent === null);
 }
 
 $(document).ready(function() {

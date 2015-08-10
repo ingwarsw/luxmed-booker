@@ -3,11 +3,12 @@
 // @namespace    http://ingwar.eu.org/
 // @version      1.0
 // @description  LuxMed Auto Booker
-// @author       You
+// @author       Karol Lassak <Ingwar Swenson>
 // @match        https://portalpacjenta.luxmed.pl/PatientPortal/Reservations/Reservation/Find
 // @grant        GM_getValue
 // @grant        GM_setValue
 // ==/UserScript==
+
 
 function checkVisits() {
     var foundDivs = document.getElementsByClassName("reserveButtonDiv");
@@ -40,7 +41,7 @@ function checkVisits() {
 function filterNeeded(div) {
     var a = div.firstElementChild;
     var hour = parseInt(a.text.substring(0, 2));
-//    console.log("Hour: " + hour);
+    //    console.log("Hour: " + hour);
 
     if (hour > GM_getValue("time_to")) {
         console.log("Hour: " + hour + " > " + GM_getValue("time_to") + " REMOVING from list");
@@ -67,13 +68,12 @@ function acceptVisit() {
 
 function addAutoSearch() {
     console.log("Adding auto search checkbox..");
-    // var div = document.getElementsByClassName("withSubmit")[0];
     var filtersDiv = document.getElementById("filtersDiv");
 
     var div = document.createElement("div");
     div.style.background = "aquamarine";
     div.style.padding = "10px";
-    
+
     addTextNode(div, "Auto search");
 
     var input = document.createElement("input");
